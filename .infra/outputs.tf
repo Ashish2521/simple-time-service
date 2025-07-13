@@ -8,3 +8,8 @@ output "public_subnet_1a_id" {
 output "private_subnet_1a_id" {
   value = module.private_subnet_1a.subnet_id
 }
+
+output "alb_dns_name" {
+  value = module.alb.alb_dns_name
+}
+

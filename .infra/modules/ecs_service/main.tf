@@ -48,6 +48,12 @@ resource "aws_ecs_service" "this" {
   launch_type     = "FARGATE"
   desired_count   = 1
 
+  load_balancer {
+  target_group_arn = var.target_group_arn
+  container_name   = "simpletimeservice"
+  container_port   = var.container_port
+  }
+
   network_configuration {
     subnets         = var.private_subnet_ids
     assign_public_ip = false

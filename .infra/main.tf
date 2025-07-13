@@ -79,6 +79,26 @@ module "ecs_cluster" {
   cluster_name  = "ashish-ecs-cluster"
 }
 
+resource "aws_security_group" "ecs_service_sg" {
+  name        = "ecs-service-sg"
+  description = "Allow incoming traffic from ALB"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress {
+    from_port   = 8000
+    to_port     = 8000
+    protocol    = "tcp"
+    security_groups = [module.alb.alb_security_group_id]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 module "ecs_service" {
   source            = "./modules/ecs_service"
   name              = "simpletimeservice"
@@ -89,8 +109,18 @@ module "ecs_service" {
     module.private_subnet_1a.subnet_id,
     module.private_subnet_1b.subnet_id
   ]
+  target_group_arn  = module.alb.target_group_arn
   security_group_id = aws_security_group.ecs_service_sg.id
 }
+
+module "alb" {
+  source            = "./modules/alb"
+  name              = "simpletimeservice"
+  vpc_id            = module.vpc.vpc_id
+  public_subnet_ids = [module.public_subnet_1a.subnet_id, module.public_subnet_1b.subnet_id]
+  container_port    = 8000
+}
+
 
 
 
