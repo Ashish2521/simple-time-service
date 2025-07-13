@@ -116,6 +116,8 @@ terraform destroy -auto-approve
 ```
 
 👨‍💻 Author
+```bash
 Ashish Sharma
 GitHub: @Ashish2521
 LinkedIn: linkedin.com/in/ashish2521
+```
