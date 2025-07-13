@@ -11,7 +11,7 @@
 ---
 
 ## 📁 Project Structure
-"""
+```bash
 simple-time-service/
 ├── app/
 │ ├── init.py # Flask app factory
@@ -19,7 +19,7 @@ simple-time-service/
 ├── main.py # App entry point
 ├── requirements.txt # Dependencies
 └── README.md
-"""
+```
 
 
 ---
