@@ -39,9 +39,8 @@ simple-time-service/
 ```
 
 
----
-
 ☁️ Cloud Architecture
+---
 This project is deployed using the following cloud architecture:
 
 🧭 VPC with 2 public and 2 private subnets
