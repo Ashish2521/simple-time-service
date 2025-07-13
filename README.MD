@@ -78,6 +78,7 @@ Visit http://127.0.0.1:8000/ in Postman or browser to fetch current UTC time.
 ```
 
 🚀 Steps to Deploy
+---
 ```bash
 # 1. Clone the repo locally and navigate to infra folder
 git clone https://github.com/Ashish2521/simple-time-service.git
