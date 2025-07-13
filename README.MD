@@ -75,22 +75,6 @@ pip install -r requirements.txt
 python main.py
 Visit http://127.0.0.1:8000/ in Postman or browser to fetch current UTC time.
 
-🚀 Cloud Deployment (Infrastructure Summary)
-This app is deployed using:
-
-AWS Services: VPC, ECS (Fargate), ALB, IAM, Security Groups, Subnets
-
-Terraform Modules: custom-built for VPC, Subnets, Route Tables, ALB, ECS Cluster, ECS Task & Service
-
-Docker Hub: hosts the container image. Please note i have deployed the image publicly.
-
-Private Networking: app runs in private subnets and is reachable via ALB in public subnets
-
-👨‍💻 Author
-Ashish Sharma
-GitHub: @Ashish2521
-LinkedIn: linkedin.com/in/ashish2521
-
 ```
 
 🚀 Steps to Deploy
@@ -130,3 +114,8 @@ To destroy all infrastructure:
 terraform destroy -auto-approve
 
 ```
+
+👨‍💻 Author
+Ashish Sharma
+GitHub: @Ashish2521
+LinkedIn: linkedin.com/in/ashish2521
