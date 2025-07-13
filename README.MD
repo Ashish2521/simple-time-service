@@ -13,41 +13,59 @@
 ## 📁 Project Structure
 ```bash
 simple-time-service/
-├── app/
-│ ├── init.py # Flask app factory
-│ └── routes.py # Route definitions
-├── main.py # App entry point
-├── requirements.txt # Dependencies
-└── README.md
+├── .infra/                        # Terraform infrastructure code
+│   ├── backend.tf                 # S3 remote backend config
+│   ├── main.tf                    # Root Terraform config
+│   ├── variables.tf               # Root variable definitions
+│   ├── terraform.tfvars           # Variable values (ignored in git)
+│   └── modules/                   # Custom Terraform modules
+│       ├── vpc/                   # VPC definition
+│       ├── public_subnet/         # Public subnet module
+│       ├── private_subnet/        # Private subnet module
+│       ├── route_table/           # Route tables
+│       ├── igw/                   # Internet Gateway
+│       ├── nat_gateway/           # NAT Gateway
+│       ├── ecs_cluster/           # ECS cluster config
+│       ├── ecs_service/           # ECS service and task definition
+│       └── alb/                   # Application Load Balancer
+│
+├── app/                           # Flask app code
+│   ├── __init__.py                # Flask app factory
+│   └── routes.py                  # Route definitions
+│
+├── main.py                        # App entry point
+├── requirements.txt               # Python dependencies
+└── README.md                      # Project documentation
 ```
 
 
 ---
 
 ☁️ Cloud Architecture
-VPC with 2 public and 2 private subnets
+This project is deployed using the following cloud architecture:
 
-ECS Fargate cluster in private subnets
+🧭 VPC with 2 public and 2 private subnets
 
-ALB in public subnets forwarding traffic to ECS
+🐳 ECS Fargate Cluster running in private subnets
 
-Terraform used to automate all resource provisioning
+🌐 Application Load Balancer (ALB) in public subnets forwarding traffic to ECS
 
-Docker Hub used as the container registry
+🛠️ Terraform to provision all AWS infrastructure
 
+📦 Docker Hub to store and pull the container image
 
 🐳 Docker Image
-Image: ashish2521/simpletimeservice:v1
+📛 Image Name: ashish2521/simpletimeservice:v1
 
-Port: 8000
+🔌 Exposed Port: 8000
 
-Runs as a non-root user
+👤 Security: Runs as a non-root user for best practice in container security
 
 🛠️ Local Development
 📋 Prerequisites
-Python 3.8+
+🐍 Python 3.8+
 
-pip installed
+📦 pip installed (Python package manager)
 
 🚀 Run Locally
 ```bash
@@ -104,7 +122,9 @@ alb_dns_name = simpletimeservice-alb-123456789.us-east-1.elb.amazonaws.com
 Access your Flask app at:
 
 http://<alb_dns_name>/
+```
 🧹 Teardown
+```bash
 To destroy all infrastructure:
 
 terraform destroy -auto-approve
