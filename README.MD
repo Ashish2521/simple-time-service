@@ -82,7 +82,6 @@ Visit http://127.0.0.1:8000/ in Postman or browser to fetch current UTC time.
 # 1. Clone the repo locally and navigate to infra folder
 git clone https://github.com/Ashish2521/simple-time-service.git
 cd simple-time-service/.infra
-cd .infra
 
 # 2. Set the backend bucket name that you want to use as a remote backend via environment variable
 export TF_BACKEND_BUCKET="your-s3-bucket-name"
@@ -116,7 +115,7 @@ terraform destroy -auto-approve
 ```
 
 👨‍💻 Author
-```bash
+```hcl
 Ashish Sharma
 GitHub: @Ashish2521
 LinkedIn: linkedin.com/in/ashish2521
