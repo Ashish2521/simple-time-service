@@ -68,6 +68,7 @@ This project is deployed using the following cloud architecture:
 📦 pip installed (Python package manager)
 
 🚀 Run Locally
+---
 ```bash
 git clone https://github.com/Ashish2521/simple-time-service.git
 cd simple-time-service
