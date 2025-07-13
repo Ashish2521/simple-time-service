@@ -1,1 +1,4 @@
 app/__pycache__
+temp.txt
+.terraform
+.terraform.lock.hcl
