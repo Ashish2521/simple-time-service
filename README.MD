@@ -1,6 +1,7 @@
 # SimpleTimeService 🕒
 
-**SimpleTimeService** is a miniomal python app built using FLASK . This app is built as a basic block for deploying a python app on Cloud using
+**SimpleTimeService** is a miniomal python app built using FLASK . This app is built as a basic block for deploying a python app on AWS Cloud using Terraform
+
 ---
 
 ## 📦 Features
